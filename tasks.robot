@@ -44,4 +44,4 @@ Extract text from pdf file to text file
     END
 
 Check if amount is expected
-    Search Str    ./output/new_file.txt    334,80
+    Search Str    ./output/new_file.txt    tilinro334,80
