@@ -16,7 +16,7 @@ Check if new invoice for software service is valid or if it needs human check
     Click download pdf
     Download pdf
     Sleep    5s
-    Extract text from pdf file to text file    C:/Users/Samuli/Downloads/102022.pdf
+    Extract text from pdf file to text file    C:/Users/Samuli/Downloads/082022.pdf
     Check if amount is expected
 
 
