@@ -8,6 +8,14 @@ Library             OperatingSystem
 Library             String
 Library             RPA.Outlook.Application
 Library             search.py
+Library             RPA.Excel.Files
+Library             search.py
+Library             search.py
+
+
+*** Variables ***
+${INVOICE_STATUS}       True
+${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/082022.pdf
 
 
 *** Tasks ***
@@ -16,8 +24,8 @@ Check if new invoice for software service is valid or if it needs human check
     Click download pdf
     Download pdf
     Sleep    5s
-    Extract text from pdf file to text file    C:/Users/Samuli/Downloads/082022.pdf
-    Check if amount is expected
+    Extract text from pdf file to text file    ${DOWNLOAD_URL}
+    ${check}=    Check if amount is expected
 
 
 *** Keywords ***
@@ -30,13 +38,10 @@ Click download pdf
 Download pdf
     Click Element When Visible    link:Download
 
-Open my pdf
-    Open Pdf    C:/Users/Samuli/Downloads/102022.pdf
-
 Extract text from pdf file to text file
     [Arguments]    ${pdf_file_name}
     ${text}=    Get Text From Pdf    ${pdf_file_name}
-    Create File    ${OUTPUT_DIR}${/}new_file.txt
+    OperatingSystem.Create File    ${OUTPUT_DIR}${/}new_file.txt
     FOR    ${page}    IN    @{text.keys()}
         Append To File
         ...    ${OUTPUT_DIR}${/}new_file.txt
@@ -44,4 +49,7 @@ Extract text from pdf file to text file
     END
 
 Check if amount is expected
-    Search Str    ./output/new_file.txt    tilinro334,80
+    ${check}=    Search Str    ./output/new_file.txt    tilinro334,80
+    Log    tällänen viesti
+
+    IF    ${check} == True    Log    on ok    ELSE    Log    Ei ole ok
