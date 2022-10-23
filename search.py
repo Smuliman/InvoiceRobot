@@ -20,12 +20,12 @@ def search_str(file_path, word):
 
         
             else:
-               app.open_application()
-               app.send_message(
+                app.open_application()
+                app.send_message(
                 recipients='samuli.tyyska@student.laurea.fi',
                 subject='Success',
                 body='Lasku pitää tarkistaa')
-               return False
+                return False
 
                 
                
