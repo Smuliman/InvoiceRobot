@@ -11,7 +11,7 @@ Check if new invoice for software service is valid or if it needs human check
     Open the intranet webpage
     Click download pdf
     Download pdf
-    Extract text from pdf file to text file    C:/Users/Samuli/Downloads/082022.pdf
+    Extract text from pdf file to text file    C:/Users/Samuli/Downloads/102022.pdf
 
 
 *** Keywords ***
@@ -25,7 +25,7 @@ Download pdf
     Click Element When Visible    link:Download
 
 Open my pdf
-    Open Pdf    C:/Users/Samuli/Downloads/082022.pdf
+    Open Pdf    C:/Users/Samuli/Downloads/102022.pdf
 
 Extract text from pdf file to text file
     [Arguments]    ${pdf_file_name}
