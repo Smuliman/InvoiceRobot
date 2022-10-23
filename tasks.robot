@@ -4,6 +4,10 @@ Documentation       Check if new invoice for software service is valid or if it 
 Library             RPA.Browser.Selenium    auto_close=${FALSE}
 Library             RPA.PDF
 Library             RPA.FileSystem
+Library             OperatingSystem
+Library             String
+Library             RPA.Outlook.Application
+Library             search.py
 
 
 *** Tasks ***
@@ -11,7 +15,9 @@ Check if new invoice for software service is valid or if it needs human check
     Open the intranet webpage
     Click download pdf
     Download pdf
+    Sleep    5s
     Extract text from pdf file to text file    C:/Users/Samuli/Downloads/102022.pdf
+    Check if amount is expected
 
 
 *** Keywords ***
@@ -36,3 +42,6 @@ Extract text from pdf file to text file
         ...    ${OUTPUT_DIR}${/}new_file.txt
         ...    ${text[${page}]}
     END
+
+Check if amount is expected
+    Search Str    ./output/new_file.txt    706,80
