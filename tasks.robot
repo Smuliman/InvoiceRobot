@@ -16,7 +16,7 @@ Library             RPA.Excel.Application
 
 *** Variables ***
 ${INVOICE_STATUS}       True
-${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/102022.pdf
+${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/092022.pdf
 ${EXPECTED_INVOICE}     ${334,80}
 
 
@@ -55,7 +55,7 @@ Check if amount is expected
     Log    tällänen viesti
 
     IF    ${check} == True
-        Write To Cells    InvoiceData.xlsx    1
+        Write To Cells    InvoiceData.xlsx    1    B    ${EXPECTED_INVOICE}
     ELSE
         Log    message
     END
