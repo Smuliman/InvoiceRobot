@@ -17,7 +17,7 @@ Library             RPA.Excel.Application
 *** Variables ***
 ${INVOICE_STATUS}       True
 ${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/092022.pdf
-${EXPECTED_INVOICE}     ${334,80}
+${EXPECTED_INVOICE}     ${334.80}
 
 
 *** Tasks ***
@@ -52,10 +52,16 @@ Extract text from pdf file to text file
 
 Check if amount is expected
     ${check}=    Search Str    ./output/new_file.txt    tilinro334,80
-    Log    tällänen viesti
 
     IF    ${check} == True
-        Write To Cells    InvoiceData.xlsx    1    B    ${EXPECTED_INVOICE}
+        RPA.Excel.Files.Open Workbook    InvoiceData.xlsx
+        RPA.Excel.Files.Set Worksheet Value    11    2    ${EXPECTED_INVOICE}
+        RPA.Excel.Files.Set Worksheet Value    11    3    +
+        RPA.Excel.Files.Set Worksheet Value    11    4    -
+
+        Save Workbook
+
+        Close Workbook
     ELSE
-        Log    message
+        Log    Vaatii ihmistarkistuksen
     END

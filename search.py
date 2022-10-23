@@ -12,7 +12,7 @@ def search_str(file_path, word):
                 app.open_application()
                 app.send_message(
                 recipients='samuli.tyyska@student.laurea.fi',
-                subject='Success',
+                subject='Laskun tarkistus',
                 body='Lasku on ok')
                 return True
        
@@ -23,7 +23,7 @@ def search_str(file_path, word):
                 app.open_application()
                 app.send_message(
                 recipients='samuli.tyyska@student.laurea.fi',
-                subject='Success',
+                subject='Laskun tarkistus Error',
                 body='Lasku pitää tarkistaa')
                 return False
 
