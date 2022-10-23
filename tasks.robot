@@ -11,11 +11,13 @@ Library             search.py
 Library             RPA.Excel.Files
 Library             search.py
 Library             search.py
+Library             RPA.Excel.Application
 
 
 *** Variables ***
 ${INVOICE_STATUS}       True
-${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/082022.pdf
+${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/102022.pdf
+${EXPECTED_INVOICE}     ${334,80}
 
 
 *** Tasks ***
@@ -52,4 +54,8 @@ Check if amount is expected
     ${check}=    Search Str    ./output/new_file.txt    tilinro334,80
     Log    tällänen viesti
 
-    IF    ${check} == True    Log    on ok    ELSE    Log    Ei ole ok
+    IF    ${check} == True
+        Write To Cells    InvoiceData.xlsx    1
+    ELSE
+        Log    message
+    END
