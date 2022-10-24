@@ -9,8 +9,6 @@ Library             String
 Library             RPA.Outlook.Application
 Library             search.py
 Library             RPA.Excel.Files
-Library             search.py
-Library             search.py
 Library             RPA.Excel.Application
 
 
@@ -55,9 +53,9 @@ Check if amount is expected
 
     IF    ${check} == True
         RPA.Excel.Files.Open Workbook    InvoiceData.xlsx
-        RPA.Excel.Files.Set Worksheet Value    11    2    ${EXPECTED_INVOICE}
-        RPA.Excel.Files.Set Worksheet Value    11    3    +
-        RPA.Excel.Files.Set Worksheet Value    11    4    -
+        RPA.Excel.Files.Set Worksheet Value    10    2    ${EXPECTED_INVOICE}
+        RPA.Excel.Files.Set Worksheet Value    10    3    +
+        RPA.Excel.Files.Set Worksheet Value    10    4    -
 
         Save Workbook
 
