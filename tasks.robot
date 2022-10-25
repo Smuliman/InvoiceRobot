@@ -14,7 +14,7 @@ Library             RPA.Excel.Application
 
 *** Variables ***
 ${INVOICE_STATUS}       True
-${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/092022.pdf
+${DOWNLOAD_URL}         C:/Users/Samuli/Downloads/102022.pdf
 ${EXPECTED_INVOICE}     ${334.80}
 
 

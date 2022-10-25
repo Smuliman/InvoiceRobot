@@ -1,3 +1,8 @@
+# RPA Project
+
+This is a study project where the task was to create a automation process using either Robot Framework or Microsoft Power Automate
+I choose Robot Framework and I got the idea for the process from my work. So this robot open invoice from browser, downloads it as a pdf, checks if it matches the expected amount and then proceeds depending the outcome of the check. If the invoice doesn't match with expected amount, robot asks human to do a closer check. 
+
 # Template: Standard Robot Framework
 
 This is the simplest template to start from.
